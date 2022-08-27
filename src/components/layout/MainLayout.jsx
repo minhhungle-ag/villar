@@ -3,8 +3,8 @@ import * as React from 'react'
 import Header from '../common/Header'
 import SideBar from '../common/SideBar'
 
-import { Container } from '@mui/material'
 import PropTypes from 'prop-types'
+import { Divider, Stack, Typography } from '@mui/material'
 
 MainLayout.propTypes = {
   children: PropTypes.node,
@@ -24,6 +24,12 @@ function MainLayout({ children }) {
       <SideBar onDrawerToggle={handleDrawerToggle} open={mobileOpen} />
 
       <Box component="main">{children}</Box>
+      <Divider />
+      <Box component="footer">
+        <Stack direction="row" alignItems="center" justifyContent="center" sx={{ p: 3 }}>
+          <Typography variant="body1">{`${new Date().getFullYear()}. Power by Minh Hung Le`}</Typography>
+        </Stack>
+      </Box>
     </Box>
   )
 }
